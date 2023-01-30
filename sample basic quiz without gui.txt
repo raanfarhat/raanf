@@ -1,0 +1,760 @@
+import random
+
+score = 0
+questions = [
+    #Wave fronts
+    {
+        "question": "What is the definition of wavefront?",
+        "options": [
+            "The boundary between the crest and the trough",
+            "The point where the wave starts",
+            "A surface of constant phase",
+            "The surface which separates the dark and light region"
+        ],
+        "answer": "A surface of constant phase"
+    },
+    {
+        "question": "What is the characteristic of a spherical wavefront?",
+        "options": [
+            "Concave",
+            "Convex",
+            "Plane",
+            "Elliptical"
+        ],
+        "answer": "Convex"
+    },
+    {
+        "question": "What is the difference between spherical wavefront and plane wavefront?",
+        "options": [
+            "Spherical wavefront is converging, plane wavefront is diverging",
+            "Spherical wavefront is diverging, plane wavefront is converging",
+            "Both are converging",
+            "Both are diverging"
+        ],
+        "answer": "Spherical wavefront is diverging, plane wavefront is converging"
+    },
+    {
+        "question": "How does the shape of a wavefront change when it passes through a converging lens?",
+        "options": [
+            "Remains the same",
+            "Becomes concave",
+            "Becomes convex",
+            "Becomes elliptical"
+        ],
+        "answer": "Becomes convex"
+    },
+    {
+        "question": "What is the principle behind Huygen's experiment?",
+        "options": [
+            "The principle of reflection",
+            "The principle of superposition",
+            "The principle of refraction",
+            "The principle of wavefront"
+        ],
+        "answer": "The principle of wavefront"
+    },
+    {
+        "question": "What happens to the wavefront when it passes through a lens of focal length 'f'?",
+        "options": [
+            "The wavefront becomes concave",
+            "The wavefront becomes convex",
+            "The wavefront becomes plane",
+            "The wavefront remains the same"
+        ],
+        "answer": "The wavefront becomes convex"
+    },
+
+    # Huygen's principle
+{
+"question": "What is Huygen's principle?",
+"options": [
+"Every point on a wavefront acts as a source of new wavelets",
+"Every point on a wavefront acts as a sink of new wavelets",
+"Every point on a wavefront acts as a barrier for new wavelets",
+"Every point on a wavefront acts as a reflector for new wavelets"
+],
+"answer": "Every point on a wavefront acts as a source of new wavelets"
+},
+{
+"question": "What is the result of Huygen's principle?",
+"options": [
+"The wavefront becomes concave",
+"The wavefront becomes convex",
+"The wavefront becomes plane",
+"The wavefront remains the same"
+],
+"answer": "The wavefront remains the same"
+},
+{
+"question": "What is the principle behind Huygen's experiment?",
+"options": [
+"The principle of reflection",
+"The principle of superposition",
+"The principle of refraction",
+"The principle of wavefront"
+],
+"answer": "The principle of wavefront"
+},
+{
+"question": "What is the outcome of Huygen's experiment?",
+"options": [
+"The wavefront becomes concave",
+"The wavefront becomes convex",
+"The wavefront becomes plane",
+"The wavefront remains the same"
+],
+"answer": "The wavefront remains the same"
+},
+{
+"question": "What is the application of Huygen's principle?",
+"options": [
+"The construction of lenses",
+"The construction of mirrors",
+"The construction of prisms",
+"The construction of diffraction grating"
+],
+"answer": "The construction of lenses"
+},
+{
+"question": "What happens when a wavefront encounters an obstacle?",
+"options": [
+"The wavefront becomes concave",
+"The wavefront becomes convex",
+"The wavefront becomes plane",
+"The wavefront remains the same"
+],
+"answer": "The wavefront remains the same"
+},
+#interference of waves
+
+{
+"question": "What is interference of waves?",
+"options": [
+"The superposition of two or more waves",
+"The absorption of two or more waves",
+"The reflection of two or more waves",
+"The transmission of two or more waves"
+],
+"answer": "The superposition of two or more waves"
+},
+{
+"question": "What is the result of interference of waves?",
+"options": [
+"The wavefront becomes concave",
+"The wavefront becomes convex",
+"The wavefront becomes plane",
+"The wavefront remains the same"
+],
+"answer": "The wavefront becomes plane"
+},
+{
+"question": "What is the principle behind the interference of waves?",
+"options": [
+"The principle of reflection",
+"The principle of superposition",
+"The principle of refraction",
+"The principle of wavefront"
+],
+"answer": "The principle of superposition"
+},
+{
+"question": "What is the outcome of interference of waves?",
+"options": [
+"The formation of maxima and minima",
+"The formation of maxima only",
+"The formation of minima only",
+"No change in the wavefront"
+],
+"answer": "The formation of maxima and minima"
+},
+{
+"question": "What is the application of interference of waves?",
+"options": [
+"The construction of lenses",
+"The construction of mirrors",
+"The construction of prisms",
+"The construction of diffraction grating"
+],
+"answer": "The construction of diffraction grating"
+},
+{
+"question": "What happens when two waves of same frequency interfere?",
+"options": [
+"The wavefront becomes concave",
+"The wavefront becomes convex",
+"The wavefront becomes plane",
+"The wavefront remains the same"
+],
+"answer": "The wavefront becomes plane"
+},
+
+#phase difference
+{
+"question": "What is phase difference?",
+"options": [
+"The difference between the amplitudes of two waves",
+"The difference between the frequencies of two waves",
+"The difference between the wavelengths of two waves",
+"The difference between the initial points of two waves"
+],
+"answer": "The difference between the initial points of two waves"
+},
+{
+"question": "What is the unit of phase difference?",
+"options": [
+"Meter",
+"Radian",
+"Hertz",
+"Watt"
+],
+"answer": "Radian"
+},
+{
+"question": "What is the relation between phase difference and path difference?",
+"options": [
+"Phase difference is equal to path difference",
+"Phase difference is greater than path difference",
+"Phase difference is less than path difference",
+"Phase difference is proportional to path difference"
+],
+"answer": "Phase difference is proportional to path difference"
+},
+{
+"question": "What happens when phase difference is equal to zero?",
+"options": [
+"The two waves cancel each other",
+"The two waves add up to each other",
+"The two waves superimpose on each other",
+"The two waves reflect from each other"
+],
+"answer": "The two waves add up to each other"
+},
+{
+"question": "What happens when phase difference is equal to π?",
+"options": [
+"The two waves cancel each other",
+"The two waves add up to each other",
+"The two waves superimpose on each other",
+"The two waves reflect from each other"
+],
+"answer": "The two waves cancel each other"
+},
+{
+"question": "What is the effect of phase difference on the wavefront?",
+"options": [
+"The wavefront becomes concave",
+"The wavefront becomes convex",
+"The wavefront becomes plane",
+"The wavefront remains the same"
+],
+"answer": "The wavefront becomes plane"
+},
+#coherent sources
+{
+"question": "What are coherent sources?",
+"options": [
+"Sources having same frequency",
+"Sources having different frequencies",
+"Sources having same amplitude",
+"Sources having same phase difference"
+],
+"answer": "Sources having same frequency"
+},
+{
+"question": "What is the effect of coherent sources on the wavefront?",
+"options": [
+"The wavefront becomes concave",
+"The wavefront becomes convex",
+"The wavefront becomes plane",
+"The wavefront remains the same"
+],
+"answer": "The wavefront becomes plane"
+},
+{
+"question": "What happens when the sources are not coherent?",
+"options": [
+"The wavefront becomes concave",
+"The wavefront becomes convex",
+"The wavefront becomes plane",
+"The wavefront remains the same"
+],
+"answer": "The wavefront becomes concave"
+},
+{
+"question": "What is the difference between coherent and non-coherent sources?",
+"options": [
+"Coherent sources have different frequencies and non-coherent sources have same frequencies",
+"Coherent sources have same frequencies and non-coherent sources have different frequencies",
+"Coherent sources have same amplitudes and non-coherent sources have different amplitudes",
+"Coherent sources have same phase difference and non-coherent sources have different phase difference"
+],
+"answer": "Coherent sources have same frequencies and non-coherent sources have different frequencies"
+},
+{
+"question": "What is the use of coherent sources in optics?",
+"options": [
+"To produce plane wavefront",
+"To produce concave wavefront",
+"To produce convex wavefront",
+"To produce irregular wavefront"
+],
+"answer": "To produce plane wavefront"
+},
+{
+"question": "What is the effect of increasing the number of coherent sources on the wavefront?",
+"options": [
+"The wavefront becomes concave",
+"The wavefront becomes convex",
+"The wavefront becomes plane",
+"The wavefront remains the same"
+],
+"answer": "The wavefront becomes plane"
+},
+    #intensity
+{
+"question": "What is the formula for intensity of a wave?",
+"options": [
+"I = A^2 * v",
+"I = A * v",
+"I = A^2 / v",
+"I = A / v"
+],
+"answer": "I = A^2 * v"
+},
+{
+"question": "What is the relation between intensity and amplitude of a wave?",
+"options": [
+"Intensity is directly proportional to amplitude",
+"Intensity is inversely proportional to amplitude",
+"Intensity is directly proportional to square of amplitude",
+"Intensity is inversely proportional to square of amplitude"
+],
+"answer": "Intensity is directly proportional to square of amplitude"
+},
+{
+"question": "What is the effect of doubling the intensity of a wave?",
+"options": [
+"The amplitude doubles",
+"The amplitude becomes half",
+"The amplitude becomes four times",
+"The amplitude remains the same"
+],
+"answer": "The amplitude becomes two times"
+},
+{
+"question": "What is the unit of intensity of a wave?",
+"options": [
+"Watt",
+"Joule",
+"Coulomb",
+"Volt"
+],
+"answer": "Watt"
+},
+{
+"question": "What is the effect of doubling the frequency of a wave on its intensity?",
+"options": [
+"The intensity becomes half",
+"The intensity doubles",
+"The intensity becomes four times",
+"The intensity remains the same"
+],
+"answer": "The intensity remains the same"
+},
+{
+"question": "What is the effect of decreasing the frequency of a wave on its intensity?",
+"options": [
+"The intensity becomes half",
+"The intensity doubles",
+"The intensity becomes four times",
+"The intensity remains the same"
+],
+"answer": "The intensity remains the same"
+},
+    #constructive interference,
+{
+"question": "What is the result of constructive interference of two waves?",
+"options": [
+"Destructive interference",
+"Zero interference",
+"Amplitude becomes half",
+"Amplitude doubles"
+],
+"answer": "Amplitude doubles"
+},
+{
+"question": "What is the condition for constructive interference of two waves?",
+"options": [
+"The phase difference between two waves is 180 degree",
+"The phase difference between two waves is 90 degree",
+"The phase difference between two waves is 0 degree",
+"The phase difference between two waves is 45 degree"
+],
+"answer": "The phase difference between two waves is 0 degree"
+},
+{
+"question": "What is the effect of constructive interference on the total intensity of the wave?",
+"options": [
+"The intensity becomes half",
+"The intensity remains the same",
+"The intensity doubles",
+"The intensity becomes four times"
+],
+"answer": "The intensity doubles"
+},
+{
+"question": "What is the effect of constructive interference on the amplitude of the wave?",
+"options": [
+"The amplitude becomes half",
+"The amplitude remains the same",
+"The amplitude doubles",
+"The amplitude becomes four times"
+],
+"answer": "The amplitude doubles"
+},
+{
+"question": "What happens when two waves are exactly in phase for constructive interference?",
+"options": [
+"Destructive interference",
+"Zero interference",
+"Amplitude becomes half",
+"Amplitude doubles"
+],
+"answer": "Amplitude doubles"
+},
+{
+"question": "What happens when two waves are exactly out of phase for constructive interference?",
+"options": [
+"Destructive interference",
+"Zero interference",
+"Amplitude becomes half",
+"Amplitude doubles"
+],
+"answer": "Destructive interference"
+},
+    # destructive interference
+{
+"question": "What is the result of destructive interference of two waves?",
+"options": [
+"Constructive interference",
+"Zero interference",
+"Amplitude becomes half",
+"Amplitude doubles"
+],
+"answer": "Amplitude becomes half"
+},
+{
+"question": "What is the condition for destructive interference of two waves?",
+"options": [
+"The phase difference between two waves is 180 degree",
+"The phase difference between two waves is 90 degree",
+"The phase difference between two waves is 0 degree",
+"The phase difference between two waves is 45 degree"
+],
+"answer": "The phase difference between two waves is 180 degree"
+},
+{
+"question": "What is the effect of destructive interference on the total intensity of the wave?",
+"options": [
+"The intensity becomes half",
+"The intensity remains the same",
+"The intensity doubles",
+"The intensity becomes four times"
+],
+"answer": "The intensity becomes half"
+},
+{
+"question": "What is the effect of destructive interference on the amplitude of the wave?",
+"options": [
+"The amplitude becomes half",
+"The amplitude remains the same",
+"The amplitude doubles",
+"The amplitude becomes four times"
+],
+"answer": "The amplitude becomes half"
+},
+{
+"question": "What happens when two waves are exactly in phase for destructive interference?",
+"options": [
+"Constructive interference",
+"Zero interference",
+"Amplitude becomes half",
+"Amplitude doubles"
+],
+"answer": "Constructive interference"
+},
+{
+"question": "What happens when two waves are exactly out of phase for destructive interference?",
+"options": [
+"Constructive interference",
+"Zero interference",
+"Amplitude becomes half",
+"Amplitude doubles"
+],
+"answer": "Amplitude becomes half"
+},
+    #YDSE
+{
+"question": "What is the main idea behind Young's double slit experiment?",
+"options": [
+"To study diffraction",
+"To study refraction",
+"To study reflection",
+"To study polarization"
+],
+"answer": "To study interference"
+},
+{
+"question": "What is the result of Young's double slit experiment?",
+"options": [
+"Constructive interference",
+"Destructive interference",
+"Amplitude becomes half",
+"Zero interference"
+],
+"answer": "Constructive and destructive interference"
+},
+{
+"question": "What is the principle behind the formation of fringes in Young's double slit experiment?",
+"options": [
+"The principle of reflection",
+"The principle of refraction",
+"The principle of interference",
+"The principle of wavefront"
+],
+"answer": "The principle of interference"
+},
+{
+"question": "What is the reason for the formation of alternate bright and dark fringes in Young's double slit experiment?",
+"options": [
+"Refraction of light",
+"Reflection of light",
+"Interference of light",
+"Diffraction of light"
+],
+"answer": "Interference of light"
+},
+{
+"question": "What is the effect of changing the distance between two slits on the width of fringes in Young's double slit experiment?",
+"options": [
+"The width of fringes decreases",
+"The width of fringes increases",
+"The width of fringes remains the same",
+"The width of fringes first decreases and then increases"
+],
+"answer": "The width of fringes increases"
+},
+{
+"question": "What is the effect of changing the distance between the screen and the slits on the width of fringes in Young's double slit experiment?",
+"options": [
+"The width of fringes decreases",
+"The width of fringes increases",
+"The width of fringes remains the same",
+"The width of fringes first decreases and then increases"
+],
+"answer": "The width of fringes decreases"
+},
+
+    #location of maxima(bright) and minima(dark) fringes
+{
+"question": "What is the location of maxima (bright) fringes in Young's double slit experiment?",
+"options": [
+"The location where destructive interference occurs",
+"The location where constructive interference occurs",
+"The location where refraction occurs",
+"The location where reflection occurs"
+],
+"answer": "The location where constructive interference occurs"
+},
+{
+"question": "What is the location of minima (dark) fringes in Young's double slit experiment?",
+"options": [
+"The location where destructive interference occurs",
+"The location where constructive interference occurs",
+"The location where refraction occurs",
+"The location where reflection occurs"
+],
+"answer": "The location where destructive interference occurs"
+},
+{
+"question": "What is the relationship between the distance of the screen and the distance between the two slits with the location of maxima (bright) fringes in Young's double slit experiment?",
+"options": [
+"The distance of the screen and the distance between the two slits have no effect on the location of maxima (bright) fringes",
+"The location of maxima (bright) fringes increases with the increase in the distance of the screen and the distance between the two slits",
+"The location of maxima (bright) fringes decreases with the increase in the distance of the screen and the distance between the two slits",
+"The location of maxima (bright) fringes first increases and then decreases with the increase in the distance of the screen and the distance between the two slits"
+],
+"answer": "The location of maxima (bright) fringes increases with the increase in the distance of the screen and the distance between the two slits"
+},
+{
+"question": "What is the relationship between the wavelength of light and the location of maxima (bright) fringes in Young's double slit experiment?",
+"options": [
+"The wavelength of light has no effect on the location of maxima (bright) fringes",
+"The location of maxima (bright) fringes increases with the increase in wavelength of light",
+"The location of maxima (bright) fringes decreases with the increase in wavelength of light",
+"The location of maxima (bright) fringes first increases and then decreases with the increase in wavelength of light"
+],
+"answer": "The location of maxima (bright) fringes decreases with the increase in wavelength of light"
+},
+{
+"question": "What is the relationship between the distance between the two slits and the location of minima (dark) fringes in Young's double slit experiment?",
+"options": [
+"The distance between the two slits has no effect on the location of minima (dark) fringes",
+"The location of minima (dark) fringes increases with the increase in the distance between the two slits",
+"The location of minima (dark) fringes decreases with the increase in the distance between the two slits",
+"The location of minima (dark) fringes first increases and then decreases with the increase in the distance between the two slits"
+],
+"answer": "The location of minima (dark) fringes decreases with the increase in the distance between the two slits"
+},
+{
+"question": "What is the relationship between the wavelength of light and the location of minima (dark) fringes in Young's double slit experiment?",
+"options": [
+"The wavelength of light has no effect on the location of minima (dark) fringes",
+"The location of minima (dark) fringes increases with the increase in wavelength of light",
+"The location of minima (dark) fringes decreases with the increase in wavelength of light",
+"The location of minima (dark) fringes first increases and then decreases with the increase in wavelength of light"
+],
+"answer": "The location of minima (dark) fringes increases with the increase in wavelength of light"
+},
+
+    #contions for distinct interference
+{
+"question": "What is the condition for two sources to produce distinct interference pattern?",
+"options": [
+"The sources should be separated by a large distance",
+"The sources should be in phase",
+"The sources should be in phase and separated by a large distance",
+"The sources should be in phase or separated by a large distance"
+],
+"answer": "The sources should be in phase and separated by a large distance"
+},
+{
+"question": "What is the requirement for two light sources to produce a distinct interference pattern?",
+"options": [
+"The sources should emit light of different wavelengths",
+"The sources should emit light of same wavelength",
+"The sources should be separated by a large distance",
+"The sources should be in phase and separated by a large distance"
+],
+"answer": "The sources should be in phase and separated by a large distance"
+},
+{
+"question": "Which of the following is necessary for two sources to produce a distinct interference pattern?",
+"options": [
+"The sources should be out of phase",
+"The sources should be in phase",
+"The sources should be separated by a small distance",
+"The sources should be in phase and separated by a large distance"
+],
+"answer": "The sources should be in phase and separated by a large distance"
+},
+{
+"question": "What is required for two sources to produce a distinct interference pattern in Young's double slit experiment?",
+"options": [
+"The sources should emit light of different frequencies",
+"The sources should emit light of same frequency",
+"The sources should be separated by a small distance",
+"The sources should be in phase and separated by a large distance"
+],
+"answer": "The sources should be in phase and separated by a large distance"
+},
+{
+"question": "Which of the following is necessary for a clear interference pattern to be observed?",
+"options": [
+"The sources should emit light of different intensity",
+"The sources should emit light of same intensity",
+"The sources should be separated by a large distance",
+"The sources should be in phase and separated by a large distance"
+],
+"answer": "The sources should be in phase and separated by a large distance"
+},
+{
+"question": "What is the condition for two sources to produce a clear interference pattern?",
+"options": [
+"The sources should be out of phase",
+"The sources should be in phase",
+"The sources should be separated by a large distance",
+"The sources should be in phase and separated by a small distance"
+],
+"answer": "The sources should be in phase and separated by a large distance"
+},
+
+    #number of maximas(bright) and minimas(minima)
+{
+"question": "How many maxima are formed in Young's double slit experiment when the distance between the two slits is equal to the wavelength of light used?",
+"options": [
+"One",
+"Two",
+"Three",
+"Infinite"
+],
+"answer": "Infinite"
+},
+{
+"question": "How many bright fringes are formed in Young's double slit experiment when the distance between the two slits is equal to half the wavelength of light used?",
+"options": [
+"One",
+"Two",
+"Three",
+"Infinite"
+],
+"answer": "Two"
+},
+{
+"question": "How many dark fringes are formed in Young's double slit experiment when the distance between the two slits is equal to a whole number of wavelengths of light used?",
+"options": [
+"One",
+"Two",
+"Zero",
+"Infinite"
+],
+"answer": "Zero"
+},
+{
+"question": "How many bright fringes are formed in Young's double slit experiment when the distance between the two slits is equal to a whole number of wavelengths of light used?",
+"options": [
+"One",
+"Two",
+"Infinite",
+"Zero"
+],
+"answer": "Infinite"
+},
+{
+"question": "How many minima are formed in Young's double slit experiment when the distance between the two slits is equal to a whole number of wavelengths of light used?",
+"options": [
+"One",
+"Two",
+"Zero",
+"Infinite"
+],
+"answer": "Infinite"
+},
+{
+"question": "How many maxima are formed in Young's double slit experiment when the distance between the two slits is equal to half the wavelength of light used?",
+"options": [
+"One",
+"Two",
+"Three",
+"Infinite"
+],
+"answer": "One"
+},
+]
+
+for i in range(len(questions)):
+    q = questions[i]
+    print("Question ", i+1, ": ", q["question"], "\n")
+    for j in range(len(q["options"])):
+        print(j+1, ") ", q["options"][j])
+    user_answer = int(input("\nEnter your option number: "))
+    if q["options"][user_answer-1] == q["answer"]:
+        print("\033[92mCorrect\033[0m")
+        score += 1
+    else:
+        print("\033[91mIncorrect\033[0m")
+        print("Correct answer: ", q["answer"])
+    print("\n")
+
+print("Final Score: ", score, " out of ", len(questions))
+
