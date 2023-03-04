@@ -1,0 +1,71 @@
+import random
+import tkinter as tk
+
+class MathQuiz:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Math Quiz")
+        self.root.geometry("400x300")
+
+        self.question_label = tk.Label(self.root, font=("Arial", 46))
+        self.question_label.pack(pady=20)
+
+        self.answer_entry = tk.Entry(self.root, font=("Arial", 36))
+        self.answer_entry.pack(pady=10)
+        self.answer_entry.bind('<Return>', self.check_answer)
+
+        self.check_button = tk.Button(self.root, text="Check Answer", font=("Arial", 16), command=self.check_answer)
+        self.check_button.pack()
+
+        self.result_label = tk.Label(self.root, font=("Arial", 36))
+        self.result_label.pack(pady=20)
+
+        self.score_label = tk.Label(self.root, font=("Arial", 26))
+        self.score_label.pack(pady=10)
+        self.exit_button = tk.Button(self.root, text="Exit Quiz",
+font=("Arial", 20), command=self.exit_quiz)
+        self.exit_button.pack()
+
+        self.score = 0
+        self.question_count = 0
+        self.generate_question()
+
+    def generate_question(self):
+        operations = ['+', '-', '*', '/']
+        num1 = random.randint(0, 20)
+        num2 = random.randint(0, 10)
+        operation = random.choice(operations)
+        if operation == '/':
+            num1 = num1 * num2
+        self.question = f"What is {num1} {operation} {num2}?"
+        self.answer = eval(f"{num1} {operation} {num2}")
+        self.question_label.config(text=self.question)
+        self.score_label.config(text=f"Score: {self.score}/{self.question_count}")
+
+    def check_answer(self, event=None):
+        user_answer = self.answer_entry.get()
+        try:
+            user_answer = int(user_answer)
+        except ValueError:
+            self.result_label.config(text="Please enter a valid number!", fg="black")
+            return
+        self.question_count += 1
+        if user_answer == self.answer:
+            self.result_label.config(text="Correct!", fg="green")
+            self.score += 1
+        else:
+            self.result_label.config(text=f"Incorrect, the answer is {self.answer}", fg="red")
+            self.question_label.config(fg="black")
+        self.answer_entry.delete(0, tk.END)
+        self.generate_question()
+
+    def exit_quiz(self):
+        self.score_label.config(text=f"Final Score: {self.score}/{self.question_count}")
+        self.question_label.config(text="")
+        self.answer_entry.delete(0, tk.END)
+        self.check_button.config(state="disabled")
+        self.exit_button.config(state="disabled")
+
+root = tk.Tk()
+app = MathQuiz(root)
+root.mainloop()
